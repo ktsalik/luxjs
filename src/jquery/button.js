@@ -82,8 +82,9 @@ Lux.Button = function() {
           oppositeAction = function() { button.addClass('is-disabled'); };
           break;
         default:
-          button.addClass(arguments[0]);
-          oppositeAction = function() { button.removeClass(arguments[0]); };
+          var customClass = arguments[0];
+          button.addClass(customClass);
+          oppositeAction = function() { button.removeClass(customClass); };
           break;
       }
       

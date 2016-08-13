@@ -93,5 +93,7 @@ $('#some-button').button('loading', httpRequest);
 $('#some-button').button().loading(httpRequest);
 // or disable it
 $('#some-button').button('disable', httpRequest);
+// you can also use your own class
+$('#some-button').button('yourClass andAnother', httpRequest);
 ````
 Button will be at normal state after the request is complete
