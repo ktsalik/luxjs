@@ -14,7 +14,7 @@ You can import Bulma and Lux CSS files separately or just use the combined versi
 <link rel="stylesheet" href="bulma.css">
 <link rel="stylesheet" href="lux.css">
 ````
-**or** just use the combined version which contains both -->
+**or** just use the combined version which contains both
 ````html
 <link rel="stylesheet" href="lux.combined.css">
 ````
@@ -51,7 +51,7 @@ Vue.use(Lux);
 ````javascript
 $('#some-button').button();
 ````
-The example above will creates a really simple button
+The example above will creates a really simple button.
 You can pass options like this:
 ````javascript
 $('#some-button').button({
