@@ -1,6 +1,10 @@
 # LuxJS
 LuxJS is a JavaScript library that makes it easy to create modern and powerful user web-interfaces. It's built on top of [Bulma](https://github.com/jgthms/bulma). Written in three different versions: jQuery, AngularJS and VueJS. Crafted with love.
 
+## Table of Contents
+* [Installation](#installation)
+* [Documentation](#documentation)
+
 ## Installation
 Clone or download the project and include files of **dist** folder into your project. Then import the files into your HTML code.
 
@@ -34,3 +38,6 @@ Don't forget to install Lux before using it
 ````javascript
 Vue.use(Lux);
 ````
+
+## Documentation
+TODO
