@@ -7,17 +7,57 @@ Lux.Button = function() {
   
   button.addClass('button');
   
+  button.loading = function(promise) {
+    button.addClass('is-loading');
+    if (promise) promise.then(function() { button.reset(); }).catch(function() { button.reset(); })
+  };
+  
+  button.reset = function(promise) {
+    button.removeClass('is-loading');
+    if (promise) promise.then(function() { button.reset(); }).catch(function() { button.loading(); })
+  };
+  
+  button.activate = function(promise) {
+    button.addClass('is-active');
+    if (promise) promise.then(function() { button.reset(); }).catch(function() { button.disactivate(); })
+  };
+  
+  button.disactivate = function(promise) {
+    button.removeClass('is-active');
+    if (promise) promise.then(function() { button.reset(); }).catch(function() { button.activate(); })
+  };
+  
+  button.disable = function(promise) {
+    button.addClass('is-disabled');
+    if (promise) promise.then(function() { button.reset(); }).catch(function() { button.enable(); })
+  };
+  
+  button.enable = function(promise) {
+    button.removeClass('is-disabled');
+    if (promise) promise.then(function() { button.reset(); }).catch(function() { button.disable(); })
+  };
+  
   if (arguments[0]) {
-    if (arguments[0] == Object) {
-      button.options = $.extend(Lux.Button.DEFAULT_OPTIONS, arguments[0]); 
+    if (arguments[0].constructor == Object) {
+      options = arguments[0];
+      var validOptions = {
+        type: ['white', 'light', 'dark', 'black', 'link', 'primary', 'info', 'success', 'warning', 'danger'],
+        size: ['small', 'medium', 'large'],
+        style: ['outlined', 'inverted'],
+        state: ['loading', 'active', 'disabled']
+      };
+      for (var option in validOptions) {
+        if (validOptions[option].indexOf(options[option]) > -1) {
+          button.addClass('is-' + options[option]);
+        }
+      }
+      if (options.onClick) {
+        button.click(options.onClick);
+      }
     } else if (typeof arguments[0] == 'function') {
-      var onClick = arguments[0];
-      button.options = Lux.Button.DEFAULT_OPTIONS;
-      button.options.onClick = onClick;
+      button.click(options.onClick);
     } else if (typeof arguments[0] == 'string') {
       var state = arguments[0];
-      button.options = Lux.Button.DEFAULT_OPTIONS;
-      
       var oppositeAction;
       
       switch (state) {
@@ -51,54 +91,14 @@ Lux.Button = function() {
           break;
       }
       
-      if (window.Promise && arguments[1] && arguments[1].constructor == Promise) {
+      if (arguments[1] && typeof arguments[1].then == 'function') {
         var promise = arguments[1];
-        promise.then(oppositeAction);
+        promise.then(oppositeAction).catch(oppositeAction);
       }
-      
-      return button;
     }
-  } else {
-    button.options = Lux.Button.DEFAULT_OPTIONS;
   }
   
-  button.click(button.options.onClick);
-  
-  button.loading = function(promise) {
-    button.addClass('is-loading');
-    if (window.Promise && promise && promise.constructor == Promise) promise.then(button.reset);
-  };
-  
-  button.reset = function(promise) {
-    button.removeClass('is-loading');
-    if (window.Promise && promise && promise.constructor == Promise) promise.then(button.loading);
-  };
-  
-  button.activate = function(promise) {
-    button.addClass('is-active');
-    if (window.Promise && promise && promise.constructor == Promise) promise.then(button.disactivate);
-  };
-  
-  button.disactivate = function(promise) {
-    button.removeClass('is-active');
-    if (window.Promise && promise && promise.constructor == Promise) promise.then(button.activate);
-  };
-  
-  button.disable = function(promise) {
-    button.addClass('is-disabled');
-    if (window.Promise && promise && promise.constructor == Promise) promise.then(button.enable);
-  };
-  
-  button.enable = function(promise) {
-    button.removeClass('is-disabled');
-    if (window.Promise && promise && promise.constructor == Promise) promise.then(button.disable);
-  };
-  
   return button;
-};
-
-Lux.Button.DEFAULT_OPTIONS = {
-  
 };
 
 $.fn.button = Lux.Button;
