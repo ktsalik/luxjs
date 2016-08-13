@@ -52,14 +52,19 @@ Vue.use(Lux);
 $('#some-button').button();
 ````
 The example above will creates a really simple button.
-You can pass options like this:
+You can also pass options like this:
 ````javascript
 $('#some-button').button({
   type: 'primary',
   size: 'large',
-  style: 'outlined'
+  style: 'outlined' // or inverted
 });
 ````
+##### Types
+<img src="assets/img/button-types.png">
+##### Sizes
+<img src="assets/img/button-sizes.png">
+
 Change the state of the button:
 ````javascript
 $('#some-button').button().loading();
@@ -74,6 +79,11 @@ btn.disable();
 // chaining with jQuery methods
 btn.addClass('someClass').html('Awesome Button').enable();
 ````
+##### States
+<img src="assets/img/button-loading.png">
+<img src="assets/img/button-active.png">
+<img src="assets/img/button-disabled.png">
+
 Another handy feature is using a promise to change the state of the button
 ````javascript
 var httpRequest = $.get('http://jsonplaceholder.typicode.com/posts/1');
