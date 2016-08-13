@@ -63,11 +63,16 @@ $('#some-button').button({
 Change the state of the button:
 ````javascript
 $('#some-button').button().loading();
+// or
+$('#some-button').button('loading');
+// and
+$('#some-button').button('reset'); // after
 
 var btn = $('#some-button').button();
+btn.loading();
 btn.disable();
-// and
-btn.enable(); // after
+// chaining with jQuery methods
+btn.addClass('someClass').html('Awesome Button').enable();
 ````
 Another handy feature is using a promise to change the state of the button
 ````javascript

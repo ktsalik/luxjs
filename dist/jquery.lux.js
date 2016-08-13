@@ -8,32 +8,32 @@ Lux.Button = function() {
   button.addClass('button');
   
   button.loading = function(promise) {
-    button.addClass('is-loading');
+    return button.addClass('is-loading');
     if (promise) promise.then(function() { button.reset(); }).catch(function() { button.reset(); })
   };
   
   button.reset = function(promise) {
-    button.removeClass('is-loading');
+    return button.removeClass('is-loading');
     if (promise) promise.then(function() { button.reset(); }).catch(function() { button.loading(); })
   };
   
   button.activate = function(promise) {
-    button.addClass('is-active');
+    return button.addClass('is-active');
     if (promise) promise.then(function() { button.reset(); }).catch(function() { button.disactivate(); })
   };
   
   button.disactivate = function(promise) {
-    button.removeClass('is-active');
+    return button.removeClass('is-active');
     if (promise) promise.then(function() { button.reset(); }).catch(function() { button.activate(); })
   };
   
   button.disable = function(promise) {
-    button.addClass('is-disabled');
+    return button.addClass('is-disabled');
     if (promise) promise.then(function() { button.reset(); }).catch(function() { button.enable(); })
   };
   
   button.enable = function(promise) {
-    button.removeClass('is-disabled');
+    return button.removeClass('is-disabled');
     if (promise) promise.then(function() { button.reset(); }).catch(function() { button.disable(); })
   };
   
