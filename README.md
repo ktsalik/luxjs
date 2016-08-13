@@ -8,7 +8,7 @@ LuxJS is a JavaScript library that makes it easy to create modern and powerful u
 ## Installation
 Clone or download the project and include files of **dist** folder into your project. Then import the files into your HTML code.
 
-#### CSS
+### CSS
 You can import Bulma and Lux CSS files separately or just use the combined version.
 ````html
 <link rel="stylesheet" href="bulma.css">
@@ -19,18 +19,23 @@ You can import Bulma and Lux CSS files separately or just use the combined versi
 <link rel="stylesheet" href="lux.combined.css">
 ````
 
-#### JavaScript
-##### jQuery Version
+### JavaScript
+
+#### jQuery Version
 ````html
 <script src="jquery.lux.js"></script>
 ````
- 
-##### AngularJS Version
+
+#### AngularJS Version
 ````html
 <script src="angular.lux.js"></script>
 ````
+Inject Lux to your app
+````javascript
+angular.module('yourApp', ['Lux']);
+````
 
-##### VueJS Version
+#### VueJS Version
 ````html
 <script src="vue.lux.js"></script>
 ````
