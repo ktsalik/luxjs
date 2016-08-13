@@ -20,12 +20,10 @@ You can import Bulma and Lux CSS files separately or just use the combined versi
 ````
 
 ### JavaScript
-
 #### jQuery Version
 ````html
 <script src="jquery.lux.js"></script>
 ````
-
 #### AngularJS Version
 ````html
 <script src="angular.lux.js"></script>
@@ -34,7 +32,6 @@ Inject Lux to your app
 ````javascript
 angular.module('yourApp', ['Lux']);
 ````
-
 #### VueJS Version
 ````html
 <script src="vue.lux.js"></script>
@@ -45,4 +42,41 @@ Vue.use(Lux);
 ````
 
 ## Documentation
-TODO
+
+### Buttons
+#### jQuery Version
+````html
+<button id="some-button"></button>
+````
+````javascript
+$('#some-button').button();
+````
+The example above will creates a really simple button
+You can pass options like this:
+````javascript
+$('#some-button').button({
+  type: 'primary',
+  size: 'large',
+  style: 'outlined'
+});
+````
+Change the state of the button:
+````javascript
+$('#some-button').button().loading();
+
+var btn = $('#some-button').button();
+btn.disable();
+// and
+btn.enable(); // after
+````
+Another handy feature is using a promise to change the state of the button
+````javascript
+var httpRequest = $.get('http://jsonplaceholder.typicode.com/posts/1');
+
+$('#some-button').button('loading', httpRequest);
+// or
+$('#some-button').button().loading(httpRequest);
+// or disable it
+$('#some-button').button('disable', httpRequest);
+````
+Button will be at normal state after the request is complete
