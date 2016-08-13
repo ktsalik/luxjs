@@ -46,15 +46,15 @@ Vue.use(Lux);
 ### Buttons
 #### jQuery Version
 ````html
-<button id="some-button"></button>
+<button id="foo">Bar</button>
 ````
 ````javascript
-$('#some-button').button();
+$('#foo').button();
 ````
 The example above will creates a really simple button.
 You can also pass options like this:
 ````javascript
-$('#some-button').button({
+$('#foo').button({
   type: 'primary',
   size: 'large',
   style: 'outlined' // or inverted
@@ -67,13 +67,13 @@ $('#some-button').button({
 
 Change the state of the button:
 ````javascript
-$('#some-button').button().loading();
+$('#foo').button().loading();
 // or
-$('#some-button').button('loading');
+$('#foo').button('loading');
 // and
-$('#some-button').button('reset'); // after
+$('#foo').button('reset'); // after
 
-var btn = $('#some-button').button();
+var btn = $('#foo').button();
 btn.loading();
 btn.disable();
 // chaining with jQuery methods
@@ -88,12 +88,12 @@ Another handy feature is using a promise to change the state of the button
 ````javascript
 var httpRequest = $.get('http://jsonplaceholder.typicode.com/posts/1');
 
-$('#some-button').button('loading', httpRequest);
+$('#foo').button('loading', httpRequest);
 // or
-$('#some-button').button().loading(httpRequest);
+$('#foo').button().loading(httpRequest);
 // or disable it
-$('#some-button').button('disable', httpRequest);
+$('#foo').button('disable', httpRequest);
 // you can also use your own class
-$('#some-button').button('yourClass andAnother', httpRequest);
+$('#foo').button('yourClass andAnother', httpRequest);
 ````
 Button will be at normal state after the request is complete
