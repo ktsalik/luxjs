@@ -1,5 +1,18 @@
-# LuxJS
+## LuxJS
 LuxJS is a JavaScript library that makes it easy to create modern and powerful user web-interfaces. It's built on top of [Bulma](https://github.com/jgthms/bulma). Written in three different versions: [jQuery](https://jquery.com/), [AngularJS](https://angularjs.org/) and [VueJS](http://vuejs.org/). Crafted with love.
+
+#### NOTE:
+LuxJS is in currently in active development.
+
+**v1.0.0 components**
+* <del>Button</del> ✔
+* <del>Group Button</del> ✔
+* Tooltip
+* Form (validations)
+* Notification
+* Progress Bar
+* Modal
+* Tabs
 
 ## Table of Contents
 * [Installation](#installation)
