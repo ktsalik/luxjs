@@ -34,14 +34,17 @@ angular
       }
     };
   })
-  .directive('addonsButton', function() {
+  .directive('buttonGroup', function() {
     return {
       restrict: 'A',
       scope: {
-        selected: '=addonsButton'
+        selected: '=buttonGroup'
       },
       link: function(scope, element, attrs) {
-        angular.forEach(element.children(), function(button) {
+        
+        var btnGroup = angular.element(element).addClass('control has-addons');
+        
+        angular.forEach(btnGroup.children(), function(button) {
           angular.element(button).on('click', function() {
             scope.selected = this.dataset.value;
             setTimeout(function() { scope.$apply(); }, 0); // force diggest
@@ -49,8 +52,8 @@ angular
         });
         
         scope.$watch('selected', function(newVal, oldVal) {
-          angular.element(element[0].querySelector('[data-value="' + oldVal + '"]')).removeClass('is-active');
-          angular.element(element[0].querySelector('[data-value="' + newVal + '"]')).addClass('is-active');
+          angular.element(btnGroup[0].querySelector('[data-value="' + oldVal + '"]')).removeClass('is-active');
+          angular.element(btnGroup[0].querySelector('[data-value="' + newVal + '"]')).addClass('is-active');
         });
       }
     };

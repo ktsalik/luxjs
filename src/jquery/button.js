@@ -98,14 +98,16 @@ Lux.Button = function() {
   return button;
 };
 
-Lux.addonsButton = function() {
+Lux.ButtonGroup = function() {
   
-  var addons = this;
+  var btnGroup = this;
   
-  addons.children().each(function(i, button) {
+  btnGroup.addClass('control has-addons');
+  
+  btnGroup.children().each(function(i, button) {
     $(button).click(function() {
-      addons.find('.is-active').removeClass('is-active');
-      addons.data('value', $(button).addClass('is-active').data('value'));
+      btnGroup.find('.is-active').removeClass('is-active');
+      btnGroup.data('value', $(button).addClass('is-active').data('value'));
     });
   });
   
@@ -113,4 +115,4 @@ Lux.addonsButton = function() {
 
 $.fn.button = Lux.Button;
 
-$.fn.addonsButton = Lux.addonsButton;
+$.fn.buttonGroup = Lux.ButtonGroup;

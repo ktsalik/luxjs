@@ -3,11 +3,11 @@ var Lux = {
 };
 
 Lux.install = function(Vue, options) {
-  Vue.component('lbutton', this.ButtonComponent);
-  Vue.directive('addons-button', this.AddonsButton);
+  Vue.component('lbutton', this.Button);
+  Vue.directive('buttonGroup', this.ButtonGroup);
 };
 
-Lux.ButtonComponent = {
+Lux.Button = {
   replace: true,
   template: '<button class="button" ' +
     'v-bind:class="[ ' +
@@ -32,17 +32,28 @@ Lux.ButtonComponent = {
   ]
 };
 
-Lux.AddonsButton = {
+Lux.ButtonGroup = {
   twoWay: true,
   bind: function() {
     var vm = this;
+    
+    vm.el.classList.add('control');
+    vm.el.classList.add('has-addons');
+    
     for (var i = 0; i < vm.el.children.length; i++) {
       vm.el.children[i].addEventListener('click', function() {
         var previousActive = vm.el.querySelector('.is-active');
-        if (previousActive) previousActive.setAttribute('class', previousActive.getAttribute('class').replace('is-active', ''));
+        if (previousActive) previousActive.classList.remove('is-active');
         vm.set(this.dataset.value);
-        this.setAttribute('class', this.getAttribute('class') + ' is-active');
+        this.classList.add('is-active');
       });
     }
+  },
+  update: function(value) {
+    var vm = this;
+    
+    Vue.nextTick(function() {
+      vm.el.querySelector('[data-value="' + value + '"]').classList.add('is-active');
+    });
   }
 };

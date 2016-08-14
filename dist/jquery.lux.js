@@ -102,14 +102,16 @@ Lux.Button = function() {
   return button;
 };
 
-Lux.addonsButton = function() {
+Lux.ButtonGroup = function() {
   
-  var addons = this;
+  var btnGroup = this;
   
-  addons.children().each(function(i, button) {
+  btnGroup.addClass('control has-addons');
+  
+  btnGroup.children().each(function(i, button) {
     $(button).click(function() {
-      addons.find('.is-active').removeClass('is-active');
-      addons.data('value', $(button).addClass('is-active').data('value'));
+      btnGroup.find('.is-active').removeClass('is-active');
+      btnGroup.data('value', $(button).addClass('is-active').data('value'));
     });
   });
   
@@ -117,4 +119,24 @@ Lux.addonsButton = function() {
 
 $.fn.button = Lux.Button;
 
-$.fn.addonsButton = Lux.addonsButton;
+$.fn.buttonGroup = Lux.ButtonGroup;
+
+Lux.Tooltip = function() {
+  
+  var element = this;
+  
+  var tooltipEl = $('<div class="tooltip hidden"><div class="arrow"></div><div class="tooltip-content"></div></div>').appendTo('body');
+  tooltipEl.find('.tooltip-content').html(element.data('tooltip'));
+  
+  element.hover(function() {
+    var position = element.offset();
+    position.left += element.outerWidth();
+    tooltipEl.css(position);
+    tooltipEl.removeClass('hidden');
+  }, function() {
+    tooltipEl.addClass('hidden');
+  });
+  
+};
+
+$.fn.tooltip = Lux.Tooltip;
