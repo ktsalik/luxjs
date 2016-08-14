@@ -5,8 +5,8 @@ LuxJS is a JavaScript library that makes it easy to create modern and powerful u
 LuxJS is in currently in active development.
 
 **v1.0.0 components**
-* <del>Button</del> ✔
-* <del>Group Button</del> ✔
+* <del>Button</del> ✓
+* <del>Group Button</del> ✓
 * Tooltip
 * Form (validations)
 * Notification
