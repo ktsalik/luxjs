@@ -98,4 +98,19 @@ Lux.Button = function() {
   return button;
 };
 
+Lux.addonsButton = function() {
+  
+  var addons = this;
+  
+  addons.children().each(function(i, button) {
+    $(button).click(function() {
+      addons.find('.is-active').removeClass('is-active');
+      addons.data('value', $(button).addClass('is-active').data('value'));
+    });
+  });
+  
+};
+
 $.fn.button = Lux.Button;
+
+$.fn.addonsButton = Lux.addonsButton;
