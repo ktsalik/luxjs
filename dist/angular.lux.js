@@ -45,11 +45,14 @@ angular
       link: function(scope, element, attrs) {
         angular.forEach(element.children(), function(button) {
           angular.element(button).on('click', function() {
-            angular.element(element[0].querySelector('.is-active')).removeClass('is-active');
-            angular.element(this).addClass('is-active');
             scope.selected = this.dataset.value;
             setTimeout(function() { scope.$apply(); }, 0); // force diggest
           });
+        });
+        
+        scope.$watch('selected', function(newVal, oldVal) {
+          angular.element(element[0].querySelector('[data-value="' + oldVal + '"]')).removeClass('is-active');
+          angular.element(element[0].querySelector('[data-value="' + newVal + '"]')).addClass('is-active');
         });
       }
     };
