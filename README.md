@@ -70,7 +70,8 @@ $('#foo').button().loading();
 // or
 $('#foo').button('loading');
 // and
-$('#foo').button('reset'); // bring it back to normal
+$('#foo').button('reset'); // .
+bring it back to normal
 
 var btn = $('#foo').button();
 btn.loading();
@@ -96,3 +97,52 @@ $('#foo').button('disable', httpRequest);
 $('#foo').button('yourClass andAnother', httpRequest);
 ````
 Button will be at normal state after the request is complete
+
+### Addons Button
+<img src="assets/img/addons-button.png">
+#### jQuery Version
+````html
+<p id="choices" class="control has-addons">
+  <button data-value="foo">Choice 1</button>
+  <button data-value="bar">Choice 2</button>
+  <button data-value="baz">Choice 3</button>
+</p>
+````
+````javascript
+$('#choices').addonsButtons();
+// retrieve the choosen value
+$('#choices').data('value');
+````
+
+#### AngularJS Version
+````html
+<p class="control has-addons" addons-button="choice">
+  <button data-value="foo">Choice 1</button>
+  <button data-value="bar">Choice 2</button>
+  <button data-value="baz">Choice 3</button>
+</p>
+````
+````javascript
+function yourController($scope) {
+  $scope.choice = "foo"; // pre-select Choice 1
+}
+````
+
+#### VueJS Version
+````html
+<div id="container">
+  <p class="control has-addons" v-addons-button="choice">
+    <button data-value="foo">Choice 1</button>
+    <button data-value="bar">Choice 2</button>
+    <button data-value="baz">Choice 3</button>
+  </p>
+</div>
+````
+````javascript
+new Vue({
+  el: '#container',
+  data: {
+    choice: 'foo' // pre-select Choice 1
+  }
+});
+````
