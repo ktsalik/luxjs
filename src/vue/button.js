@@ -33,10 +33,7 @@ Lux.ButtonGroup = {
     
     for (var i = 0; i < vm.el.children.length; i++) {
       vm.el.children[i].addEventListener('click', function() {
-        var previousActive = vm.el.querySelector('.is-active');
-        if (previousActive) previousActive.classList.remove('is-active');
         vm.set(this.dataset.value);
-        this.classList.add('is-active');
       });
     }
   },
@@ -44,6 +41,8 @@ Lux.ButtonGroup = {
     var vm = this;
     
     Vue.nextTick(function() {
+      var previousActive = vm.el.querySelector('.is-active');
+      if (previousActive) previousActive.classList.remove('is-active');
       vm.el.querySelector('[data-value="' + value + '"]').classList.add('is-active');
     });
   }
