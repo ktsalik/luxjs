@@ -3,6 +3,6 @@ var Lux = {
 };
 
 Lux.install = function(Vue, options) {
-  Vue.component('lux-button', this.ButtonComponent);
-  Vue.directive('lux-addons-button', this.AddonsButton);
+  Vue.component('lbutton', this.ButtonComponent);
+  Vue.directive('addons-button', this.AddonsButton);
 };
