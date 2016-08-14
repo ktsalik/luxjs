@@ -1,5 +1,5 @@
 # LuxJS
-LuxJS is a JavaScript library that makes it easy to create modern and powerful user web-interfaces. It's built on top of [Bulma](https://github.com/jgthms/bulma). Written in three different versions: jQuery, AngularJS and VueJS. Crafted with love.
+LuxJS is a JavaScript library that makes it easy to create modern and powerful user web-interfaces. It's built on top of [Bulma](https://github.com/jgthms/bulma). Written in three different versions: [jQuery](https://jquery.com/), [AngularJS](https://angularjs.org/) and [VueJS](http://vuejs.org/). Crafted with love.
 
 ## Table of Contents
 * [Installation](#installation)
@@ -9,7 +9,7 @@ LuxJS is a JavaScript library that makes it easy to create modern and powerful u
 Clone or download the project and include files of **dist** folder into your project. Then import the files into your HTML code.
 
 ### CSS
-You can import Bulma and Lux CSS files separately or just use the combined version.
+You can import Bulma and Lux CSS files separately
 ````html
 <link rel="stylesheet" href="bulma.css">
 <link rel="stylesheet" href="lux.css">
@@ -51,8 +51,7 @@ Vue.use(Lux);
 ````javascript
 $('#foo').button();
 ````
-The example above will creates a really simple button.
-You can also pass options like this:
+The example above will create a really simple button. You can also use options like it's shown below
 ````javascript
 $('#foo').button({
   type: 'primary',
@@ -65,13 +64,13 @@ $('#foo').button({
 ##### Sizes
 <img src="assets/img/button-sizes.png">
 
-Change the state of the button:
+Change the state of the button
 ````javascript
 $('#foo').button().loading();
 // or
 $('#foo').button('loading');
 // and
-$('#foo').button('reset'); // after
+$('#foo').button('reset'); // bring it back to normal
 
 var btn = $('#foo').button();
 btn.loading();
