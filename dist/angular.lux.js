@@ -43,9 +43,10 @@ angular
         selected: '=addonsButton'
       },
       link: function(scope, element, attrs) {
-        scope.selected = 'ddd';
         angular.forEach(element.children(), function(button) {
           angular.element(button).on('click', function() {
+            angular.element(element[0].querySelector('.is-active')).removeClass('is-active');
+            angular.element(this).addClass('is-active');
             scope.selected = this.dataset.value;
             setTimeout(function() { scope.$apply(); }, 0); // force diggest
           });
