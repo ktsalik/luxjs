@@ -82,6 +82,7 @@ btn.addClass('someClass').html('Awesome Button').enable();
 ##### States
 <img src="assets/img/button-loading.png">
 <img src="assets/img/button-active.png">
+
 <img src="assets/img/button-disabled.png">
 
 Another handy feature is using a promise to change the state of the button
@@ -98,29 +99,29 @@ $('#foo').button('yourClass andAnother', httpRequest);
 ````
 Button will be at normal state after the request is complete
 
-### Addons Button
-<img src="assets/img/addons-button.png">
+### Button Group
+<img src="assets/img/button-group.png">
 #### jQuery Version
 ````html
-<p id="choices" class="control has-addons">
+<p id="choices">
   <button data-value="foo">Choice 1</button>
   <button data-value="bar">Choice 2</button>
   <button data-value="baz">Choice 3</button>
 </p>
 ````
 ````javascript
-$('#choices').addonsButtons();
+$('#choices').buttonGroup();
 // retrieve the choosen value
 $('#choices').data('value');
 ````
 
 #### AngularJS Version
 ````html
-<p class="control has-addons" addons-button="choice">
+<div button-group="choice">
   <button data-value="foo">Choice 1</button>
   <button data-value="bar">Choice 2</button>
   <button data-value="baz">Choice 3</button>
-</p>
+</div>
 ````
 ````javascript
 function yourController($scope) {
@@ -131,7 +132,7 @@ function yourController($scope) {
 #### VueJS Version
 ````html
 <div id="container">
-  <p class="control has-addons" v-addons-button="choice">
+  <div v-button-group="choice">
     <button data-value="foo">Choice 1</button>
     <button data-value="bar">Choice 2</button>
     <button data-value="baz">Choice 3</button>
