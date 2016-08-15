@@ -1,3 +1,7 @@
+var Lux = {
+  VERSION: '0.0.1'
+};
+
 angular
   .module('Lux', [])
   .run(function() {

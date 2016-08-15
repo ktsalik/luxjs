@@ -1,3 +1,7 @@
+var Lux = {
+  VERSION: '0.0.1'
+};
+
 angular
   .module('Lux', [])
   .run(function() {
@@ -6,42 +10,51 @@ angular
     }
   });
 
+Lux.Button = {};
+
+Lux.Button.options = {
+  type: ['white', 'light', 'dark', 'black', 'link', 'primary', 'info', 'success', 'warning', 'danger'],
+  size: ['small', 'medium', 'large'],
+  style: ['outlined', 'inverted'],
+  state: ['loading', 'active', 'disabled']
+};
+
+Lux.Button.directive = function() {
+  return {
+    restrict: 'EA',
+    link: function(scope, element, attrs) {
+      element.addClass('button');
+      
+      var options = Lux.Button.options;
+      
+      for (var option in options) {
+        attrs.$observe(option, (function(option) {
+          return function(val) {
+            element.removeClass('is-' + options[option].join(' is-'));
+            if (options[option].indexOf(val) > -1) {
+              element.addClass('is-' + val);
+            }
+          };
+        })(option));
+      }
+      
+      options.state.forEach(function(state) {
+        attrs.$observe(state, function(val) {
+          element.removeClass('is-' + state);
+          if (val === false || val === 'false') {
+            element.removeClass('is-' + state);
+          } else {
+            element.addClass('is-' + state);
+          }
+        });
+      });
+    }
+  };
+};
+
 angular
   .module('Lux')
-  .directive('lbutton', function() {
-    return {
-      restrict: 'EA',
-      link: function(scope, element, attrs) {
-        element.addClass('button');
-        
-        attrs.$observe('type', function(val) {
-          var validTypes = ['white', 'light', 'dark', 'black', 'link', 'primary', 'info', 'success', 'warning', 'danger'];
-          element.removeClass('is-' + validTypes.join(' is-'));
-          if (validTypes.indexOf(val) > -1) {
-            element.addClass('is-' + val);
-          }
-        });
-        
-        attrs.$observe('size', function(val) {
-          var validSizes = ['small', 'medium', 'large'];
-          element.removeClass('is-' + validSizes.join(' is-'));
-          if (validSizes.indexOf(val) > -1) {
-            element.addClass('is-' + val);  
-          }
-        });
-        
-        ['outlined', 'inverted', 'loading', 'active', 'disabled'].forEach(function(styleState) {
-          attrs.$observe(styleState, function(val) {
-            if (val == 'false') { // because boolean values end up as string values
-              element.removeClass('is-' + styleState);
-            } else {
-              element.addClass('is-' + styleState);
-            }
-          });
-        });
-      }
-    };
-  })
+  .directive('lbutton', Lux.Button.directive)
   .directive('buttonGroup', function() {
     return {
       restrict: 'A',
