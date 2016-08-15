@@ -57,7 +57,7 @@ Vue.use(Lux);
 ## Documentation
 
 ### Buttons
-#### jQuery Version
+#### jQuery Version [Live Example](https://jsfiddle.net/Tsalikidis/y15ckoon/)
 ````html
 <button id="foo">Bar</button>
 ````
@@ -83,8 +83,7 @@ $('#foo').button().loading();
 // or
 $('#foo').button('loading');
 // and
-$('#foo').button('reset'); // .
-bring it back to normal
+$('#foo').button('reset'); // back to normal
 
 var btn = $('#foo').button();
 btn.loading();
@@ -95,7 +94,6 @@ btn.addClass('someClass').html('Awesome Button').enable();
 ##### States
 <img src="assets/img/button-loading.png">
 <img src="assets/img/button-active.png">
-
 <img src="assets/img/button-disabled.png">
 
 Another handy feature is using a promise to change the state of the button
@@ -112,9 +110,58 @@ $('#foo').button('yourClass andAnother', httpRequest);
 ````
 Button will be at normal state after the request is complete
 
+#### AngularJS Version [Live Example](https://jsfiddle.net/Tsalikidis/p9snc2us/)
+````html
+<lbutton type="primary" size="small">Small Button</lbutton>
+````
+You can bind variables in order to control button states
+````html
+<lbutton loading="{{users.search.searching}}" ng-click="search()">Search</lbutton>
+````
+````javascript
+function yourController($scope, $http) {
+  $scope.users = {
+    search: {
+      results: [],
+      searching: false
+    }
+  };
+  
+  $scope.search = function() {
+    $scope.users.search.searching = true;
+    $http.get('/search')
+      .then(function(results) {
+        $scope.users.search.results = results;
+        // do something with results...
+      })
+      .finally(function() {
+        $scope.users.search.searching = false;
+      });
+  }
+}
+````
+
+#### VueJS Version [Live Example](https://jsfiddle.net/Tsalikidis/z36m4p4q/)
+````html
+<button v-lbutton type="primary" size="small">Small</button>
+````
+Bind variables to state
+````html
+<div class="container">
+  <button v-lbutton v-bind:loading="foo">Load Button</button>
+</div>
+````
+````javascript
+new Vue({
+  el: '.container',
+  data: {
+    foo: false
+  }
+});
+````
 ### Button Group
 <img src="assets/img/button-group.png">
-#### jQuery Version
+#### jQuery Version [Live Example](https://jsfiddle.net/Tsalikidis/sp79gzo6/)
 ````html
 <p id="choices">
   <button data-value="foo">Choice 1</button>
@@ -128,7 +175,7 @@ $('#choices').buttonGroup();
 $('#choices').data('value');
 ````
 
-#### AngularJS Version
+#### AngularJS Version [Live Example](https://jsfiddle.net/Tsalikidis/acwpqp6s/)
 ````html
 <div button-group="choice">
   <button data-value="foo">Choice 1</button>
@@ -142,19 +189,19 @@ function yourController($scope) {
 }
 ````
 
-#### VueJS Version
+#### VueJS Version [Live Example](https://jsfiddle.net/Tsalikidis/0qqynbgb/)
 ````html
-<div id="container">
+<div class="container">
   <div v-button-group="choice">
     <button data-value="foo">Choice 1</button>
     <button data-value="bar">Choice 2</button>
     <button data-value="baz">Choice 3</button>
-  </p>
+  </div>
 </div>
 ````
 ````javascript
 new Vue({
-  el: '#container',
+  el: '.container',
   data: {
     choice: 'foo' // pre-select Choice 1
   }
