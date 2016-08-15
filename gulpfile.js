@@ -5,7 +5,7 @@ var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 
 gulp.task('build-styles', function() {
-  gulp.src('./bower_components/bulma/bulma.sass')
+  gulp.src('./bulma/bulma.sass')
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('./dist/'));
     
