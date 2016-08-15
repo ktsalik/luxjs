@@ -127,21 +127,26 @@ $.fn.button = Lux.Button.Plugin;
 $.fn.buttonGroup = Lux.ButtonGroup;
 
 Lux.Tooltip = function() {
+  var elements = this;
   
-  var element = this;
-  
-  var tooltipEl = $('<div class="tooltip hidden"><div class="arrow"></div><div class="tooltip-content"></div></div>').appendTo('body');
-  tooltipEl.find('.tooltip-content').html(element.data('tooltip'));
-  
-  element.hover(function() {
-    var position = element.offset();
-    position.left += element.outerWidth();
-    tooltipEl.css(position);
-    tooltipEl.removeClass('hidden');
-  }, function() {
-    tooltipEl.addClass('hidden');
+  elements.each(function(i, element) {
+    var tooltipEl = $('<div class="tooltip hidden"></div>').html($(element).data('tooltip')).appendTo('body');
+    
+    $(element).hover(function() {
+      var position = $(this).offset();
+      var fixedOffset = 3;
+      position.left += ($(this).outerWidth() / 2) - (tooltipEl.outerWidth() / 2);
+      if (this.getBoundingClientRect().top >= tooltipEl.outerHeight()) {
+        position.top -= tooltipEl.outerHeight() + fixedOffset;
+      } else {
+        position.top += tooltipEl.outerHeight() - fixedOffset;
+      }
+      tooltipEl.css(position);
+      tooltipEl.removeClass('hidden');
+    }, function() {
+      tooltipEl.addClass('hidden');
+    });
   });
-  
 };
 
 $.fn.tooltip = Lux.Tooltip;

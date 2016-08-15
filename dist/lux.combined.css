@@ -3819,3 +3819,13 @@ a.panel-block:hover {
 
 body {
   color: #1d1d1d; }
+
+.hidden {
+  visibility: hidden; }
+
+.tooltip {
+  position: absolute;
+  background-color: #1d1d1d;
+  color: #dedede;
+  border-radius: 3px;
+  padding: 5px; }
