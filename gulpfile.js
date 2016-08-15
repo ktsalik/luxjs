@@ -3,6 +3,7 @@ var sass = require('gulp-sass');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
+var minifyCss = require('gulp-minify-css');
 
 gulp.task('build-styles', function() {
   gulp.src('./bulma/bulma.sass')
@@ -15,6 +16,9 @@ gulp.task('build-styles', function() {
   
   return gulp.src(['./dist/bulma.css', './dist/lux.css'])
     .pipe(concat('lux.combined.css'))
+    .pipe(gulp.dest('./dist/'))
+    .pipe(minifyCss())
+    .pipe(rename('lux.combined.min.css'))
     .pipe(gulp.dest('./dist/'));
 }); 
  
@@ -24,8 +28,9 @@ gulp.task('watch-styles', function () {
 
 gulp.task('build-jquery', function() {
   gulp.src([
-      './src/jquery/Lux.js',
-      './src/jquery/Button.js',
+      './src/jquery/lux.js',
+      './src/jquery/button.js',
+      './src/jquery/tooltip.js',
     ])
     .pipe(concat('jquery.lux.js'))
     .pipe(gulp.dest('./dist/'))
@@ -40,8 +45,8 @@ gulp.task('watch-jquery', function () {
 
 gulp.task('build-vue', function() {
   return gulp.src([
-      './src/vue/Lux.js',
-      './src/vue/Button.js'
+      './src/vue/lux.js',
+      './src/vue/button.js'
     ])
     .pipe(concat('vue.lux.js'))
     .pipe(gulp.dest('./dist/'))
@@ -56,8 +61,8 @@ gulp.task('watch-vue', function () {
 
 gulp.task('build-angular', function() {
   return gulp.src([
-      './src/angular/Lux.js',
-      './src/angular/Button.js'
+      './src/angular/lux.js',
+      './src/angular/button.js'
     ])
     .pipe(concat('angular.lux.js'))
     .pipe(gulp.dest('./dist/'))
