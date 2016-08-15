@@ -1,4 +1,13 @@
-Lux.Button = function() {
+Lux.Button = {};
+
+Lux.Button.options = {
+  type: ['white', 'light', 'dark', 'black', 'link', 'primary', 'info', 'success', 'warning', 'danger'],
+  size: ['small', 'medium', 'large'],
+  style: ['outlined', 'inverted'],
+  state: ['loading', 'active', 'disabled']
+};
+
+Lux.Button.Plugin = function() {
   var button = this;
   
   button.addClass('button');
@@ -36,14 +45,10 @@ Lux.Button = function() {
   if (arguments[0]) {
     if (arguments[0].constructor == Object) {
       options = arguments[0];
-      var validOptions = {
-        type: ['white', 'light', 'dark', 'black', 'link', 'primary', 'info', 'success', 'warning', 'danger'],
-        size: ['small', 'medium', 'large'],
-        style: ['outlined', 'inverted'],
-        state: ['loading', 'active', 'disabled']
-      };
-      for (var option in validOptions) {
-        if (validOptions[option].indexOf(options[option]) > -1) {
+      var btnOptions = Lux.Button.options;
+      
+      for (var option in btnOptions) {
+        if (option in options && btnOptions[option].indexOf(options[option]) > -1) {
           button.addClass('is-' + options[option]);
         }
       }
@@ -113,6 +118,6 @@ Lux.ButtonGroup = function() {
   
 };
 
-$.fn.button = Lux.Button;
+$.fn.button = Lux.Button.Plugin;
 
 $.fn.buttonGroup = Lux.ButtonGroup;
