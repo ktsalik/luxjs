@@ -520,18 +520,18 @@ a.box:active {
   .button:active, .button:focus, .button.is-active {
     border-color: #1fc8db;
     outline: none; }
-  .button[disabled], .button.is-disabled {
+  .button.is-disabled {
     background-color: #f5f7fa;
     border-color: #d3d6db;
     cursor: not-allowed;
     pointer-events: none; }
-    .button[disabled]::-moz-placeholder, .button.is-disabled::-moz-placeholder {
+    .button.is-disabled::-moz-placeholder {
       color: rgba(34, 35, 36, 0.3); }
-    .button[disabled]::-webkit-input-placeholder, .button.is-disabled::-webkit-input-placeholder {
+    .button.is-disabled::-webkit-input-placeholder {
       color: rgba(34, 35, 36, 0.3); }
-    .button[disabled]:-moz-placeholder, .button.is-disabled:-moz-placeholder {
+    .button.is-disabled:-moz-placeholder {
       color: rgba(34, 35, 36, 0.3); }
-    .button[disabled]:-ms-input-placeholder, .button.is-disabled:-ms-input-placeholder {
+    .button.is-disabled:-ms-input-placeholder {
       color: rgba(34, 35, 36, 0.3); }
   .button strong {
     color: inherit; }
@@ -802,7 +802,7 @@ a.box:active {
     height: 48px;
     padding-left: 20px;
     padding-right: 20px; }
-  .button[disabled], .button.is-disabled {
+  .button.is-disabled {
     opacity: 0.5; }
   .button.is-fullwidth {
     display: flex;
@@ -925,18 +925,18 @@ a.box:active {
   .input:active, .textarea:active, .input:focus, .textarea:focus, .input.is-active, .is-active.textarea {
     border-color: #1fc8db;
     outline: none; }
-  .input[disabled], [disabled].textarea, .input.is-disabled, .is-disabled.textarea {
+  .input.is-disabled, .is-disabled.textarea {
     background-color: #f5f7fa;
     border-color: #d3d6db;
     cursor: not-allowed;
     pointer-events: none; }
-    .input[disabled]::-moz-placeholder, [disabled].textarea::-moz-placeholder, .input.is-disabled::-moz-placeholder, .is-disabled.textarea::-moz-placeholder {
+    .input.is-disabled::-moz-placeholder, .is-disabled.textarea::-moz-placeholder {
       color: rgba(34, 35, 36, 0.3); }
-    .input[disabled]::-webkit-input-placeholder, [disabled].textarea::-webkit-input-placeholder, .input.is-disabled::-webkit-input-placeholder, .is-disabled.textarea::-webkit-input-placeholder {
+    .input.is-disabled::-webkit-input-placeholder, .is-disabled.textarea::-webkit-input-placeholder {
       color: rgba(34, 35, 36, 0.3); }
-    .input[disabled]:-moz-placeholder, [disabled].textarea:-moz-placeholder, .input.is-disabled:-moz-placeholder, .is-disabled.textarea:-moz-placeholder {
+    .input.is-disabled:-moz-placeholder, .is-disabled.textarea:-moz-placeholder {
       color: rgba(34, 35, 36, 0.3); }
-    .input[disabled]:-ms-input-placeholder, [disabled].textarea:-ms-input-placeholder, .input.is-disabled:-ms-input-placeholder, .is-disabled.textarea:-ms-input-placeholder {
+    .input.is-disabled:-ms-input-placeholder, .is-disabled.textarea:-ms-input-placeholder {
       color: rgba(34, 35, 36, 0.3); }
   .input.is-white, .is-white.textarea {
     border-color: #fff; }
@@ -1044,18 +1044,18 @@ a.box:active {
     .select select:active, .select select:focus, .select select.is-active {
       border-color: #1fc8db;
       outline: none; }
-    .select select[disabled], .select select.is-disabled {
+    .select select.is-disabled {
       background-color: #f5f7fa;
       border-color: #d3d6db;
       cursor: not-allowed;
       pointer-events: none; }
-      .select select[disabled]::-moz-placeholder, .select select.is-disabled::-moz-placeholder {
+      .select select.is-disabled::-moz-placeholder {
         color: rgba(34, 35, 36, 0.3); }
-      .select select[disabled]::-webkit-input-placeholder, .select select.is-disabled::-webkit-input-placeholder {
+      .select select.is-disabled::-webkit-input-placeholder {
         color: rgba(34, 35, 36, 0.3); }
-      .select select[disabled]:-moz-placeholder, .select select.is-disabled:-moz-placeholder {
+      .select select.is-disabled:-moz-placeholder {
         color: rgba(34, 35, 36, 0.3); }
-      .select select[disabled]:-ms-input-placeholder, .select select.is-disabled:-ms-input-placeholder {
+      .select select.is-disabled:-ms-input-placeholder {
         color: rgba(34, 35, 36, 0.3); }
     .select select.is-white {
       border-color: #fff; }
