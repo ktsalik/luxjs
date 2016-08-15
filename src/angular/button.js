@@ -1,6 +1,6 @@
 angular
-  .module('lux')
-  .directive('lButton', function() {
+  .module('Lux')
+  .directive('lbutton', function() {
     return {
       restrict: 'EA',
       link: function(scope, element, attrs) {

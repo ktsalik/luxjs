@@ -1,2 +1,2 @@
 angular
-  .module('lux', []);
+  .module('Lux', []);
