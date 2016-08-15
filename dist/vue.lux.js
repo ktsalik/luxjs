@@ -42,7 +42,7 @@ Lux.Button.directive = {
     options.state.forEach(function(state) {
       watchers[state] = function(newVal, oldVal) {
         this.el.classList.remove('is-' + state);
-        if (newVal != false && newVal != 'false') {
+        if (newVal !== false && newVal !== 'false') {
           this.el.classList.add('is-' + state);
         }
       }
