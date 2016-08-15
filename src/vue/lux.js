@@ -3,6 +3,6 @@ var Lux = {
 };
 
 Lux.install = function(Vue, options) {
-  Vue.component('lbutton', this.Button);
-  Vue.directive('buttonGroup', this.ButtonGroup);
+  Vue.directive('lbutton', this.Button.directive);
+  Vue.directive('buttonGroup', this.ButtonGroup.directive);
 };
