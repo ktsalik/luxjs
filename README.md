@@ -7,7 +7,7 @@ LuxJS is in currently in active development.
 **v1.0.0 components**
 * <del>Button</del> ✓
 * <del>Group Button</del> ✓
-* Tooltip
+* <del>Tooltip</del> ✓
 * Form (validations)
 * Notification
 * Progress Bar
