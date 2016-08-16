@@ -21,7 +21,7 @@ Lux.Tooltip = function(options) {
       var position = $element.offset();
       var fixedOffset = 3;
       if (placement == 'auto') {
-        if ($element[0].getBoundingClientRect().top >= tooltip.outerHeight()) {
+        if ($element[0].getBoundingClientRect().top >= $tooltip.outerHeight()) {
           placement = 'top';
         } else {
           placement = 'bottom';
@@ -29,11 +29,11 @@ Lux.Tooltip = function(options) {
       }
       switch (placement) {
         case 'top':
-          position.left += ($element.outerWidth() / 2) - (tooltip.outerWidth() / 2);
+          position.left += ($element.outerWidth() / 2) - ($tooltip.outerWidth() / 2);
           position.top -= $tooltip.outerHeight() + fixedOffset;
           break;
         case 'bottom':
-          position.left += ($element.outerWidth() / 2) - (tooltip.outerWidth() / 2);
+          position.left += ($element.outerWidth() / 2) - ($tooltip.outerWidth() / 2);
           position.top += $tooltip.outerHeight() + fixedOffset;
           break;
         case 'left':
