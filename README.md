@@ -33,10 +33,12 @@ You can import Bulma and Lux CSS files separately
 ````
 
 ### JavaScript
+
 #### jQuery Version
 ````html
 <script src="jquery.lux.js"></script>
 ````
+
 #### AngularJS Version
 ````html
 <script src="angular.lux.js"></script>
@@ -45,6 +47,7 @@ Inject Lux to your app
 ````javascript
 angular.module('yourApp', ['Lux']);
 ````
+
 #### VueJS Version
 ````html
 <script src="vue.lux.js"></script>
@@ -57,6 +60,7 @@ Vue.use(Lux);
 ## Documentation
 
 ### Buttons
+
 #### jQuery Version [Live Example](https://jsfiddle.net/Tsalikidis/y15ckoon/)
 ````html
 <button id="foo">Bar</button>
@@ -72,8 +76,10 @@ $('#foo').button({
   style: 'outlined' // or inverted
 });
 ````
+
 ##### Types
 <img src="assets/img/button-types.png">
+
 ##### Sizes
 <img src="assets/img/button-sizes.png">
 
@@ -91,6 +97,7 @@ btn.disable();
 // chaining with jQuery methods
 btn.addClass('someClass').html('Awesome Button').enable();
 ````
+
 ##### States
 <img src="assets/img/button-loading.png">
 <img src="assets/img/button-active.png">
@@ -159,8 +166,10 @@ new Vue({
   }
 });
 ````
+
 ### Button Group
 <img src="assets/img/button-group.png">
+
 #### jQuery Version [Live Example](https://jsfiddle.net/Tsalikidis/sp79gzo6/)
 ````html
 <p id="choices">
@@ -206,4 +215,41 @@ new Vue({
     choice: 'foo' // pre-select Choice 1
   }
 });
+````
+
+### Tooltip
+<img src="assets/img/tooltips.png">
+
+#### jQuery Version
+````html
+<button data-tooltip="This is a tooltip">Tooltip Button</button>
+<span data-tooltip="Tooltip placed at the bottom">Span with tooltip</span>
+````
+````javascript
+$('button').tooltip();
+
+$('span').tooltip({
+  placement: 'bottom',
+  tigger: 'click'
+});
+````
+
+#### AngularJS Version
+````html
+<button tooltip="Tooltip on button">Button</button>
+
+<span tooltip="Another Tooltip" placement="right" trigger="click">Click to show tooltip</span>
+
+<!-- dynamic value -->
+<div tooltip="{{foo}}">Contains dynamic tooltip</div>
+````
+
+#### VueJS Version
+````html
+<button v-tooltip="'Tooltip on button'">Button</button>
+
+<span v-tooltip="'Another Tooltip'" placement="right" trigger="click">Click to show tooltip</span>
+
+<!-- dynamic value -->
+<div v-tooltip="foo">Contains dynamic tooltip</div>
 ````
