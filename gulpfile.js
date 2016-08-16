@@ -46,7 +46,8 @@ gulp.task('watch-jquery', function () {
 gulp.task('build-vue', function() {
   return gulp.src([
       './src/vue/lux.js',
-      './src/vue/button.js'
+      './src/vue/button.js',
+      './src/vue/tooltip.js',
     ])
     .pipe(concat('vue.lux.js'))
     .pipe(gulp.dest('./dist/'))
@@ -62,7 +63,8 @@ gulp.task('watch-vue', function () {
 gulp.task('build-angular', function() {
   return gulp.src([
       './src/angular/lux.js',
-      './src/angular/button.js'
+      './src/angular/button.js',
+      './src/angular/tooltip.js',
     ])
     .pipe(concat('angular.lux.js'))
     .pipe(gulp.dest('./dist/'))

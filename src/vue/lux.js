@@ -5,4 +5,5 @@ var Lux = {
 Lux.install = function(Vue, options) {
   Vue.directive('lbutton', this.Button.directive);
   Vue.directive('buttonGroup', this.ButtonGroup.directive);
+  Vue.directive('tooltip', this.Tooltip.directive);
 };
