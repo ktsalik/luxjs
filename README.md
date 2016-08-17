@@ -8,7 +8,9 @@ LuxJS is in currently in active development.
 * <del>Button</del> ✓
 * <del>Group Button</del> ✓
 * <del>Tooltip</del> ✓
-* Form (validations)
+* Form
+  * <del>Validations</del> ✓
+  * Styling
 * Notification
 * Progress Bar
 * Modal
@@ -240,8 +242,8 @@ $('span').tooltip({
 
 <span tooltip="Another Tooltip" placement="right" trigger="click">Click to show tooltip</span>
 
-<!-- dynamic value -->
-<div tooltip="{{foo}}">Contains dynamic tooltip</div>
+<!-- dynamic content tooltip -->
+<div tooltip="{{foo}}">Tooltip content changes dynamically</div>
 ````
 
 #### VueJS Version
@@ -250,6 +252,71 @@ $('span').tooltip({
 
 <span v-tooltip="'Another Tooltip'" placement="right" trigger="click">Click to show tooltip</span>
 
-<!-- dynamic value -->
-<div v-tooltip="foo">Contains dynamic tooltip</div>
+<!-- dynamic content tooltip -->
+<div v-tooltip="foo">Tooltip content changes dynamically</div>
+````
+
+### Form Validations
+<img src="assets/img/validations.png">
+
+Available validations:
+* required
+* email
+* url
+* length[min]-[max]
+* digits[min]-[max]
+* number[min]-[max]
+* equals
+* checked
+#### jQuery Version
+````html
+<form>
+  <label class="label">Name</label>
+  <p class="control">
+    
+    <input valid-required class="input" type="text">
+  
+  </p>
+  <label class="label">Username</label>
+  <p class="control">
+    
+    <input valid-length="4-20" class="input" type="text">
+  
+  </p>
+  <label class="label">Email</label>
+  <p class="control">
+    
+    <input valid-email class="input" type="text">
+  
+  </p>
+  <label class="label">Pin Code</label>
+  <p class="control">
+    
+    <input valid-digits="4-*" class="input" type="text">
+  
+  </p>
+  <label class="label">Website</label>
+  <p class="control">
+    
+    <input valid-url class="input" type="text">
+  
+  </p>
+  <label class="label">Choose one</label>
+  <p class="control">
+    
+    <input valid-equals="foo|bar|baz" class="input" type="text">
+  
+  </p>
+  <p class="control">
+    <label class="checkbox">
+      
+      <input type="checkbox" valid-checked="true">
+      
+      Check me
+    </label>
+  </p>
+</form>
+````
+````javascript
+$('form').form();
 ````
