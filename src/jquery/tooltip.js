@@ -6,16 +6,22 @@ Lux.Tooltip = function(options) {
   elements.each(function(i, element) {
     var $element = $(element);
     
+    var placement = options.placement || $element.data('placement') || 'auto';
+    
     var $tooltip;
     if ($element.data('tooltipId')) {
       $tooltip = $('#tooltip_' + $element.data('tooltipId'));
+      if (options == 'show') {
+        positionTooltip();
+        $tooltip.removeClass('hidden');
+      } else if(options == 'hide') {
+        $tooltip.addClass('hidden');
+      }
     } else {
       var tooltipId = $('.tooltip').length + 1;
       $tooltip = $('<div id="tooltip_' + tooltipId + '" class="tooltip hidden"></div>').html(options.content || $element.data('tooltip')).appendTo('body');  
       $element.data('tooltipId', tooltipId);
     }
-    
-    var placement = options.placement || $element.data('placement') || 'auto';
     
     function positionTooltip() {
       var position = $element.offset();
@@ -43,7 +49,7 @@ Lux.Tooltip = function(options) {
           position.left += $element.outerWidth() + fixedOffset;
           break;
       }
-      tooltip.css(position);
+      $tooltip.css(position);
     }
     
     $element.off('mouseenter.tooltip mouseleave.tooltip click.tooltip'); // remove any previous handlers
