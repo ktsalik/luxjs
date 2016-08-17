@@ -31,6 +31,7 @@ gulp.task('build-jquery', function() {
       './src/jquery/lux.js',
       './src/jquery/button.js',
       './src/jquery/tooltip.js',
+      './src/jquery/form.js'
     ])
     .pipe(concat('jquery.lux.js'))
     .pipe(gulp.dest('./dist/'))
