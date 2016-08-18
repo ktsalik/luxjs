@@ -6,6 +6,7 @@ LuxJS is in currently in active development.
 
 **v1.0.0 components**
 * <del>Button</del> ✓
+* Button Dropdown
 * <del>Group Button</del> ✓
 * <del>Tooltip</del> ✓
 * Form
@@ -15,6 +16,7 @@ LuxJS is in currently in active development.
 * Progress Bar
 * Modal
 * Tabs
+* Dropdown Menu
 
 ## Table of Contents
 * [Installation](#installation)
@@ -268,6 +270,7 @@ Available validations:
 * number[min]-[max]
 * equals
 * checked
+
 #### jQuery Version
 ````html
 <form>
