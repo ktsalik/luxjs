@@ -62,6 +62,11 @@ Vue.use(Lux);
 ````
 
 ## Documentation
+### Table of Contents
+[Buttons](#buttons)
+[Button Group](#button-group)
+[Tooltip](#tooltip)
+[Form Validations](#form-validations)
 
 ### Buttons
 
