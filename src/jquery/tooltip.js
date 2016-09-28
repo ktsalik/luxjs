@@ -40,13 +40,15 @@ Lux.Tooltip = function(options) {
           break;
         case 'bottom':
           position.left += ($element.outerWidth() / 2) - ($tooltip.outerWidth() / 2);
-          position.top += $tooltip.outerHeight() + fixedOffset;
+          position.top += $element.outerHeight() + fixedOffset;
           break;
         case 'left':
           position.left -= $tooltip.outerWidth() + fixedOffset;
+          position.top -= ($tooltip.outerHeight() / 2) - ($element.outerHeight() / 2);
           break;
         case 'right':
           position.left += $element.outerWidth() + fixedOffset;
+          position.top -= ($tooltip.outerHeight() / 2) - ($element.outerHeight() / 2);
           break;
       }
       $tooltip.css(position);
